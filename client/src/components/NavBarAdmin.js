@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
 
-function NavBar({ user, setUser }) {
+function NavBarAdmin({ user, setUser }) {
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -11,21 +11,18 @@ function NavBar({ user, setUser }) {
       }
     });
   }
-  console.log(user.user_balance);
+  //   console.log(user.user_balance);
   return (
     <Wrapper>
       <Nav>
         <Logo>
           <Link to="/">${user.user_balance ? user.user_balance : 0}</Link>
         </Logo>
-        <Button as={Link} to="/store">
-          Store
+        <Button as={Link} to="/manage_store">
+          Manage store
         </Button>
-        <Button as={Link} to="/likes">
-          likes
-        </Button>
-        <Button as={Link} to="/profile">
-          profile
+        <Button as={Link} to="/manage_user">
+          Manage user
         </Button>
         <Button variant="outline" onClick={handleLogoutClick}>
           Logout
@@ -58,4 +55,4 @@ const Nav = styled.nav`
   right: 8px;
 `;
 
-export default NavBar;
+export default NavBarAdmin;
