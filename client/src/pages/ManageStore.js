@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { Button, Error, Input, FormField, Label } from "../styles";
+import { Error, Input, FormField, Label } from "../styles";
 import { useState } from "react";
+
+import Button from "react-bootstrap/Button";
 function ManageStore({ user }) {
   const [value, setValue] = useState("");
   const [itemName, setItemName] = useState("");
@@ -8,6 +10,8 @@ function ManageStore({ user }) {
   const [itemType, setItemType] = useState("Toy");
   const [itemImg, setItemImg] = useState("");
   const [errors, setErrors] = useState([]);
+
+  const [showCreate, setShowCreate] = useState(false);
 
   const handleChange = (event) => {
     const result = event.target.value.replace(/\D/g, "");
@@ -46,37 +50,65 @@ function ManageStore({ user }) {
     <Wrapper>
       {user.user_role == "admin" ? (
         <>
-          <form onSubmit={handleSubmit}>
-            <FormField>
-              <Label htmlFor="name">Item Name</Label>
-              <Input required type="text" onChange={(e) => setItemName(e.target.value)} />
-            </FormField>
-            <FormField>
-              <Label htmlFor="price">Item Price</Label>
-              <Input required type="text" placeholder="Price $" value={value} onChange={handleChange} />
-            </FormField>
-            <FormField>
-              <Label htmlFor="type">Item Type</Label>
-              <select onChange={(e) => setItemType(e.target.value)}>
-                <option value="Toy">Toy</option>
-                <option value="Food">Food</option>
-                <option value="School">School</option>
-                <option value="Etc">Etc</option>
-              </select>
-            </FormField>
-            <FormField>
-              <Label htmlFor="image">Item Image URL</Label>
-              <Input type="text" onChange={(e) => setItemImg(e.target.value)} />
-            </FormField>
-            <FormField>
-              {errors.map((err) => (
-                <Error key={err}>{err}</Error>
-              ))}
-            </FormField>
-            <FormField>
-              <Button type="submit">Add item</Button>
-            </FormField>
-          </form>
+          <div className="d-flex justify-content-between">
+            <Button
+              variant="secondary"
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowCreate(true);
+              }}
+            >
+              Create Item
+            </Button>
+            <Button
+              variant="secondary"
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowCreate(false);
+              }}
+            >
+              Item List
+            </Button>
+          </div>
+          {showCreate ? (
+            <>
+              <form onSubmit={handleSubmit}>
+                <FormField>
+                  <Label htmlFor="name">Item Name</Label>
+                  <Input required type="text" onChange={(e) => setItemName(e.target.value)} />
+                </FormField>
+                <FormField>
+                  <Label htmlFor="price">Item Price</Label>
+                  <Input required type="text" placeholder="Price $" value={value} onChange={handleChange} />
+                </FormField>
+                <FormField>
+                  <Label htmlFor="type">Item Type</Label>
+                  <select onChange={(e) => setItemType(e.target.value)}>
+                    <option value="Toy">Toy</option>
+                    <option value="Food">Food</option>
+                    <option value="School">School</option>
+                    <option value="Etc">Etc</option>
+                  </select>
+                </FormField>
+                <FormField>
+                  <Label htmlFor="image">Item Image URL</Label>
+                  <Input type="text" onChange={(e) => setItemImg(e.target.value)} />
+                </FormField>
+                <FormField>
+                  {errors.map((err) => (
+                    <Error key={err}>{err}</Error>
+                  ))}
+                </FormField>
+                <FormField>
+                  <Button type="submit">Add item</Button>
+                </FormField>
+              </form>
+            </>
+          ) : (
+            <>false</>
+          )}
         </>
       ) : (
         <>Not Authorized</>

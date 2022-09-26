@@ -25,7 +25,7 @@ function App() {
       {user.user_role == "admin" ? (
         <>
           <NavBarAdmin user={user} setUser={setUser} />
-          <main>
+          <main style={{ padding: 20 }}>
             <Switch>
               <Route path="/manage_store">{<ManageStore user={user} />}</Route>
               <Route path="/manage_user">{/* <NewRecipe user={user} /> */}</Route>
@@ -38,7 +38,7 @@ function App() {
       ) : (
         <>
           <NavBar user={user} setUser={setUser} />
-          <main>
+          <main style={{ padding: 20 }}>
             <Switch>
               <Route path="/store">{/* <RecipeList /> */}</Route>
               <Route path="/profile">{/* <NewRecipe user={user} /> */}</Route>
