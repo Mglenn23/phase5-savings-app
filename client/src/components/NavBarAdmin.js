@@ -16,7 +16,8 @@ function NavBarAdmin({ user, setUser }) {
     <Wrapper>
       <Nav>
         <Logo>
-          <Link to="/">${user.user_balance ? user.user_balance : 0}</Link>
+          {user.username}
+          <Link to="/"> ${user.user_balance ? user.user_balance : 0}</Link>
         </Logo>
         <Button as={Link} to="/manage_store">
           Manage store
@@ -24,7 +25,7 @@ function NavBarAdmin({ user, setUser }) {
         <Button as={Link} to="/manage_user">
           Manage user
         </Button>
-        <Button variant="outline" onClick={handleLogoutClick}>
+        <Button variant="outline" as={Link} to="/" onClick={handleLogoutClick}>
           Logout
         </Button>
       </Nav>

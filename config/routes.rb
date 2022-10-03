@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   
-  # resources :likes
-   resources :items
+  resources :orders, only: [:index, :create,:update]
+   resources :likes , only: [:index, :create,:update, :destroy]
+   resources :items, only: [:index, :create, :update, :destroy]
    resources :users
-  
+   get "/likes_data", to:"likes#index"
+   get "/orders_data", to:"orders#index"
+   get "/users_data", to:"users#index"
+   get "/users/:id/likes", to:"users#likes"
+  get "/item_data", to:"items#index"
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"

@@ -5,6 +5,10 @@ import NavBarAdmin from "./NavBarAdmin";
 import Login from "../pages/Login";
 import HomePage from "../pages/HomePage";
 import ManageStore from "../pages/ManageStore";
+import ManageUser from "../pages/ManageUser";
+import Store from "../pages/Store";
+import Order from "../pages/Order";
+import LikePage from "../pages/LikePage";
 function App() {
   const [user, setUser] = useState(null);
 
@@ -28,7 +32,7 @@ function App() {
           <main style={{ padding: 20 }}>
             <Switch>
               <Route path="/manage_store">{<ManageStore user={user} />}</Route>
-              <Route path="/manage_user">{/* <NewRecipe user={user} /> */}</Route>
+              <Route path="/manage_user">{<ManageUser />}</Route>
               <Route path="/">
                 <HomePage user={user} />
               </Route>
@@ -40,9 +44,9 @@ function App() {
           <NavBar user={user} setUser={setUser} />
           <main style={{ padding: 20 }}>
             <Switch>
-              <Route path="/store">{/* <RecipeList /> */}</Route>
-              <Route path="/profile">{/* <NewRecipe user={user} /> */}</Route>
-              <Route path="/likes">{/* <NewRecipe user={user} /> */}</Route>
+              <Route path="/store">{<Store user={user} />}</Route>
+              <Route path="/order">{<Order user={user} />}</Route>
+              <Route path="/likes">{<LikePage user={user} />}</Route>
               <Route path="/">
                 <HomePage user={user} />
               </Route>

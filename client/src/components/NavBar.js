@@ -16,18 +16,19 @@ function NavBar({ user, setUser }) {
     <Wrapper>
       <Nav>
         <Logo>
-          <Link to="/">${user.user_balance ? user.user_balance : 0}</Link>
+          {user.username}
+          <Link to="/"> ${user.user_balance ? user.user_balance : 0}</Link>
         </Logo>
         <Button as={Link} to="/store">
           Store
         </Button>
         <Button as={Link} to="/likes">
-          likes
+          Likes
         </Button>
-        <Button as={Link} to="/profile">
-          profile
+        <Button as={Link} to="/order">
+          Order
         </Button>
-        <Button variant="outline" onClick={handleLogoutClick}>
+        <Button variant="outline" as={Link} to="/" onClick={handleLogoutClick}>
           Logout
         </Button>
       </Nav>
