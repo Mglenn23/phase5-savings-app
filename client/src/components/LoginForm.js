@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { getUser } from "../features/userSlice";
+import { useDispatch } from "react-redux";
 import { Button, Error, Input, FormField, Label } from "../styles";
 
 function LoginForm({ onLogin }) {
@@ -6,10 +8,12 @@ function LoginForm({ onLogin }) {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const dispatch = useDispatch();
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
+    // onLogin(dispatch(getUser({ username, password })));
+
     fetch("/login", {
       method: "POST",
       headers: {

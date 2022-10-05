@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useState, useEffect } from "react";
 
 import Row from "react-bootstrap/Row";
@@ -52,16 +51,19 @@ function LikePage({ user }) {
   }
 
   return (
-    <Wrapper>
+    <>
+      <div>
+        <div className="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+          <div className="col-lg-8 align-self-end">
+            <h1 className="font-weight-bold">Your Likes</h1>
+          </div>
+        </div>
+      </div>
       <Row xs={1} md={3} className="g-2">
         {displayAllItem}
       </Row>
-    </Wrapper>
+    </>
   );
 }
-const Wrapper = styled.section`
-  max-width: 800px;
-  margin: 40px auto;
-`;
 
 export default LikePage;

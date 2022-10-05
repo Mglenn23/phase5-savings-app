@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 function ListItem({ id, item_name, item_price, item_type, item_url, handlerButtonEdit }) {
   function handlerClickEdit(e) {
@@ -15,9 +16,9 @@ function ListItem({ id, item_name, item_price, item_type, item_url, handlerButto
         <td>{item_type}</td>
         <td>{item_url}</td>
         <td>
-          <button className="editButton" onClick={handlerClickEdit}>
+          <Button variant="warning" onClick={handlerClickEdit}>
             Edit
-          </button>
+          </Button>
         </td>
       </tr>
     </>

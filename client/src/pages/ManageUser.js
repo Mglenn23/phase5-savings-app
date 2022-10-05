@@ -13,7 +13,7 @@ function ManageUser() {
   const [userRole, setUserRole] = useState();
   const [userBalance, setUserBalance] = useState();
   const [userSavings, setUserSavings] = useState();
-  const [errors, setErrors] = useState([]);
+
   const [showEdit, setShowEdit] = useState(false);
   const handleAddMoney = (e) => {
     userData.map((dat) => {
@@ -108,6 +108,13 @@ function ManageUser() {
   return (
     <>
       <Wrapper>
+        <div>
+          <div className="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div className="col-lg-8 align-self-end">
+              <h1 className="font-weight-bold">Manage User</h1>
+            </div>
+          </div>
+        </div>
         {showEdit ? (
           <>
             <form>
@@ -145,11 +152,6 @@ function ManageUser() {
                 />
               </FormField>
 
-              <FormField>
-                {errors.map((err) => (
-                  <Error key={err}>{err}</Error>
-                ))}
-              </FormField>
               <FormField>
                 <Button type="submit" variant="primary" onClick={handleUpdateUser}>
                   Edit item

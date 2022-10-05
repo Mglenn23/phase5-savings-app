@@ -149,6 +149,13 @@ function ManageStore({ user }) {
 
   return (
     <Wrapper>
+      <div>
+        <div className="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+          <div className="col-lg-8 align-self-end">
+            <h1 className="font-weight-bold">Manage Store</h1>
+          </div>
+        </div>
+      </div>
       {user.user_role == "admin" ? (
         <>
           <div className="d-flex justify-content-between">
@@ -266,7 +273,7 @@ function ManageStore({ user }) {
                 </>
               ) : (
                 <>
-                  <Table striped bordered hover variant="dark" style={{}}>
+                  <Table striped bordered hover variant="dark" style={{ textAlign: "center" }}>
                     <thead>
                       <tr>
                         <th>ID</th>
@@ -292,8 +299,7 @@ function ManageStore({ user }) {
 }
 
 const Wrapper = styled.section`
-  max-width: 800px;
-  margin: 40px auto;
+  margin: 10px auto;
 `;
 
 export default ManageStore;

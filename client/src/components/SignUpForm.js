@@ -5,6 +5,7 @@ function SignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [userRole, setUserRole] = useState("user");
 
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +25,7 @@ function SignUpForm({ onLogin }) {
         password_confirmation: passwordConfirmation,
         user_balance: 0,
         user_savings: 0,
-        user_role: "user",
+        user_role: userRole,
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -50,7 +51,13 @@ function SignUpForm({ onLogin }) {
         <Label htmlFor="password">Password Confirmation</Label>
         <Input type="password" id="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} autoComplete="current-password" />
       </FormField>
-
+      <FormField>
+        <Label htmlFor="type">Role</Label>
+        <select onChange={(e) => setUserRole(e.target.value)}>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </FormField>
       <FormField>
         <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
       </FormField>

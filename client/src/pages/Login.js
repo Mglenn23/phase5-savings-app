@@ -9,7 +9,8 @@ function Login({ onLogin }) {
 
   return (
     <Wrapper>
-      <Logo>Savings</Logo>
+      <img src="https://res.cloudinary.com/dgncyyv7n/image/upload/v1664910953/savings_logo_mngcao.jpg" style={{ width: "80%", paddingLeft: "25%" }} />
+
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
@@ -36,13 +37,6 @@ function Login({ onLogin }) {
     </Wrapper>
   );
 }
-
-const Logo = styled.h1`
-  font-family: "Permanent Marker", cursive;
-  font-size: 3rem;
-  color: deeppink;
-  margin: 8px 0 16px;
-`;
 
 const Wrapper = styled.section`
   max-width: 500px;

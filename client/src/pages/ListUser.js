@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 function ListUser({ id, username, user_role, user_balance, user_savings, handlerButtonEdit }) {
   function handlerClickEdit(e) {
@@ -15,9 +16,9 @@ function ListUser({ id, username, user_role, user_balance, user_savings, handler
         <td>{user_balance}</td>
         <td>{user_savings}</td>
         <td>
-          <button className="editButton" onClick={handlerClickEdit}>
+          <Button variant="warning" onClick={handlerClickEdit}>
             Edit
-          </button>
+          </Button>
         </td>
       </tr>
     </>

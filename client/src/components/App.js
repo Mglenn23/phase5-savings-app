@@ -9,8 +9,10 @@ import ManageUser from "../pages/ManageUser";
 import Store from "../pages/Store";
 import Order from "../pages/Order";
 import LikePage from "../pages/LikePage";
+
 function App() {
   const [user, setUser] = useState(null);
+  const [trigger, setTrigger] = useState("");
 
   useEffect(() => {
     // auto-login
@@ -19,11 +21,15 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
-  }, []);
+  }, [trigger]);
 
   if (!user) return <Login onLogin={setUser} />;
   // console.log(user);
+  // console.log("lala");
 
+  function functionBuy(id) {
+    setTrigger(id);
+  }
   return (
     <>
       {user.user_role == "admin" ? (
@@ -34,7 +40,7 @@ function App() {
               <Route path="/manage_store">{<ManageStore user={user} />}</Route>
               <Route path="/manage_user">{<ManageUser />}</Route>
               <Route path="/">
-                <HomePage user={user} />
+                <HomePage user={user} functionBuy={functionBuy} />
               </Route>
             </Switch>
           </main>
@@ -45,7 +51,7 @@ function App() {
           <main style={{ padding: 20 }}>
             <Switch>
               <Route path="/store">{<Store user={user} />}</Route>
-              <Route path="/order">{<Order user={user} />}</Route>
+              <Route path="/order">{<Order user={user} functionBuy={functionBuy} />}</Route>
               <Route path="/likes">{<LikePage user={user} />}</Route>
               <Route path="/">
                 <HomePage user={user} />

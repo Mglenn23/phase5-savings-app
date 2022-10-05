@@ -34,7 +34,7 @@ function StoreList({ user, id, item_name, item_price, item_type, item_url, setHa
   return (
     <Col>
       <Card>
-        <Card.Img style={{ height: "10%", padding: "10%" }} variant="top" src={item_url} />
+        <Card.Img style={{ height: "10%", padding: "5%" }} variant="top" src={item_url} />
         <Card.Body>
           <Card.Title>{item_name}</Card.Title>
           <Card.Text>

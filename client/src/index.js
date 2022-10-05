@@ -4,7 +4,8 @@ import ReactDOM from "react-dom";
 import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
-
+import { Provider } from "react-redux";
+import store from "./app/store";
 const GlobalStyle = createGlobalStyle`
   *,
   *::before, 
@@ -22,9 +23,11 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 ReactDOM.render(
-  <BrowserRouter>
-    <GlobalStyle />
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <GlobalStyle />
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );

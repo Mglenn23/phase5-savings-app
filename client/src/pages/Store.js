@@ -1,11 +1,11 @@
-import styled from "styled-components";
 import { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import StoreList from "./StoreList";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-function Store({ user }) {
+import Swal from "sweetalert2";
+function Store({ user, functionBuy }) {
   const [dataItem, setDataItem] = useState([]);
   const [triggerRenderSave, setTriggerRenderSave] = useState("");
   const [orderItemID, setOrderItemID] = useState("");
@@ -54,7 +54,13 @@ function Store({ user }) {
         user_id: user_id,
         item_id: item_id,
       }),
-    }).then((r) => {});
+    }).then((r) => {
+      Swal.fire({
+        title: "Item Saved",
+        text: "Successfully Like!",
+        icon: "success",
+      });
+    });
   }
   function setHandlerClickBuy(id, item_name, item_price, item_type, item_url) {
     console.log(id, item_name, item_price, item_type, item_url);
@@ -79,8 +85,6 @@ function Store({ user }) {
   }, [showBuy]);
 
   const handleOrder = (e) => {
-    e.preventDefault();
-    console.log(orderTotalCount);
     fetch("/orders", {
       method: "POST",
       headers: {
@@ -101,9 +105,23 @@ function Store({ user }) {
         user_balance: orderTotalCount,
       }),
     });
+    Swal.fire({
+      title: "Item Ordered",
+      text: "Successfully Order!",
+      icon: "success",
+    });
+    functionBuy(orderTotalCount);
+    setShowBuy(false);
   };
   return (
-    <Wrapper>
+    <>
+      <div>
+        <div className="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+          <div className="col-lg-8 align-self-end">
+            <h1 className="font-weight-bold">Store</h1>
+          </div>
+        </div>
+      </div>
       {showBuy ? (
         <>
           <form onSubmit={handleOrder}>
@@ -155,12 +173,8 @@ function Store({ user }) {
           {displayAllItem}
         </Row>
       )}
-    </Wrapper>
+    </>
   );
 }
-const Wrapper = styled.section`
-  max-width: 800px;
-  margin: 40px auto;
-`;
 
 export default Store;
