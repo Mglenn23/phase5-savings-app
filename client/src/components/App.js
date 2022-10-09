@@ -24,8 +24,6 @@ function App() {
   }, [trigger]);
 
   if (!user) return <Login onLogin={setUser} />;
-  // console.log(user);
-  // console.log("lala");
 
   function functionBuy(id) {
     setTrigger(id);
