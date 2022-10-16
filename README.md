@@ -1,164 +1,73 @@
-<<<<<<< HEAD
-# savings-app-project5
-=======
-# Project Template: React/Rails API
+# Savings App By MG
 
-## Description
+Deployed link : https://phase5-savings-app.herokuapp.com/
 
-This project is scaffolded so that you can build a React frontend
-and Rails backend together, and easily deploy them to Heroku.
+Saving App can be used for family to teach their kids to save money and use they money to get something they want. This project using react as front end and ruby as backend, other technology: bootstrap, sweet alert, cloudinary.
 
-## Requirements
+## Brief Tutorial
 
-- Ruby 2.7.3
-- NodeJS (v14 or higher), and npm
-- Heroku CLI
-- Postgresql
+- User : Create account user, login, if have balance can buy items (admin only can add balance to user), order item can be cancelled and will return the balance as long as the status still order, like the items, see the total balance and savings data (User savings = total money from admin, balance is user money for buy items, every order will decrease balance).
+- Admin : Create account admin, login, can process order list of users (done or cancel), can add/edit/delete items sold in store, can add/edit/delete user data.
 
-See [Environment Setup](#environment-setup) for instructions on installing these
-tools if you don't already have them.
+## Table of Contents
 
-## Setup
+- [General Info](#general-information)
+- [Tools Used](#tools-used)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Room for Improvement](#room-for-improvement)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
 
-**Fork and clone this repository**.
+## General Information
 
-Then run:
+- Each user have their own data
+- CRUD Store and User
+- Upload Image and save in couldinary
+- Balance to buy items
+- Simple design website with interactive alert
 
-```sh
-bundle install
-rails db:create
-npm install --prefix client
-```
+## Tools Used
 
-You can use the following commands to run the application:
+- Bootstrap - https://react-bootstrap.github.io/
+- Sweetalert2 - https://sweetalert2.github.io/recipe-gallery/sweetalert2-react.html
 
-- `rails s`: run the backend on [http://localhost:3000](http://localhost:3000)
-- `npm start --prefix client`: run the frontend on
-  [http://localhost:4000](http://localhost:4000)
-- `rails start`: run the frontend and backend together with one command
+## Features
 
-Make sure to also update this README to include documentation about
-your project. Here's a list of some [awesome readmes][] for inspiration.
+List the ready features here:
 
-## Deploying
+- User and admin
+- Store, order and likes/whistlist (for user)
+- Manage store,order and user (for admin)
 
-This application has all the starter code needed to help you deploy your
-application to Heroku. It's recommended to deploy your project early and push up
-changes often to ensure that your code works equally well in production and
-development environments.
+## Screenshots
 
-To deploy, first login to your Heroku account using the Heroku CLI:
+![](./screenshoot/Login.jpg)
+![](./screenshoot/Store.jpg)
+![](./screenshoot/Buy.jpg)
+![](./screenshoot/Order.jpg)
+![](./screenshoot/Likes.jpg)
+![](./screenshoot/Account.jpg)
+![](./screenshoot/adminManageStore.jpg)
+![](./screenshoot/adminManageUser.jpg)
+![](./screenshoot/adminOrderList.jpg)
 
-```sh
-heroku login
-```
+## Room for Improvement
 
-Create new Heroku app:
+There is a plan for improvement with this project, to make this game more interactive.
 
-```sh
-heroku create my-app-name
-```
+Room for improvement:
 
-Add build for Heroku to run Rails app on Ruby and build the React app on Node:
+- Improvement to be done page for tutorial
+- Improvement to be done layout and design
+- Improvement to be done interactive information about savings
 
-```sh
-heroku buildpacks:add heroku/nodejs --index 1
-heroku buildpacks:add heroku/ruby --index 2
-```
+## Acknowledgements
 
-To deploy, commit your code and push the changes to Heroku:
+- This project was inspired for parenting to teach their kids to save money and get items from savings.
+- Many thanks to my Flatiron school lectures
+- This is my Phase 5 project at Flatiron school
 
-```sh
-git add .
-git commit -m 'Commit message'
-git push heroku main
-```
+## Contact
 
-> Note: depending on your Git configuration, your default branch might be named
-> `master` or `main`. You can verify which by running
-> `git branch --show-current`. If it's `master`, you'll need to run
-> `git push heroku master` instead.
-
-Any time you have changes to deploy, just make sure your changes are committed
-on the main branch of your repo, and push those changes to Heroku to deploy
-them.
-
-You can view your deployed app with:
-
-```sh
-heroku open
-```
-
-## Environment Setup
-
-### Ruby
-
-Ensure you are running the
-[latest Ruby release supported by Heroku][heroku ruby]. At the time of writing,
-that's `2.7.3`. You can verify with:
-
-```sh
-ruby -v
-```
-
-If you don't see `2.7.3`, you can install it and set it as the default version:
-
-```sh
-rvm install 2.7.3
-rvm --default use 2.7.3
-```
-
-You should also install the latest version of `bundler` and `rails`:
-
-```sh
-gem install bundler
-gem install rails
-```
-
-[heroku ruby]: https://devcenter.heroku.com/articles/ruby-support#supported-runtimes
-
-### Install NodeJS
-
-Verify you are running a recent version of Node with:
-
-```sh
-node -v
-```
-
-If your Node version is less than 14, update it with:
-
-```sh
-nvm install node
-```
-
-You can also update your npm version with:
-
-```sh
-npm i -g npm
-```
-
-### Install the Heroku CLI
-
-Follow this guide to install Heroku CLI (if you don't already have it):
-
-- [https://devcenter.heroku.com/articles/heroku-cli#download-and-install](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
-
-### Install Postgresql
-
-Heroku requires that you use Postgresql for your database instead of SQLite.
-Postgresql (or just Postgres for short) is an advanced database management
-system with more features than SQLite. If you don't already have it installed,
-you'll need to set it up.
-
-To install Postgres for WSL, follow this guide:
-
-- [https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database#install-postgresql][postgresql wsl]
-
-To install Postgres for OSX, you can use Homebrew:
-
-```sh
-brew install postgresql
-```
-
-[postgresql wsl]: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database#install-postgresql
->>>>>>> 1ee5b5b (Initial commit)
+Created by [@mg](https://www.linkedin.com/in/michael-gunawan-030a52194/) - feel free to contact me!

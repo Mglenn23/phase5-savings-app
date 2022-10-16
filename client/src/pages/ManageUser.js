@@ -202,11 +202,11 @@ function ManageUser() {
                 </select>
               </FormField>
               <FormField>
-                <Label htmlFor="price">Item Price</Label>
+                <Label htmlFor="price">Add Money</Label>
                 <Input
                   required
                   type="number"
-                  placeholder="Price $"
+                  placeholder="$"
                   onChange={(e) => {
                     setUserMoney(e.target.value);
                   }}
